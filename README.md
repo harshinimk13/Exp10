@@ -6,19 +6,20 @@ To develop an Android application that demonstrates data sharing using the Conta
 
 ## Overview
 
-The Contacts Provider application demonstrates how Android applications can access contact information using the Android Contacts Content Provider.
+The Contacts Provider application demonstrates how an Android application can access contact information using the Android Contacts Content Provider.
 
-The application requests permission to access contacts, retrieves contact names and phone numbers using `ContentResolver`, and displays the retrieved information in a `ListView`.
+The application requests permission to access contacts, retrieves contact names and phone numbers using ContentResolver, and displays the retrieved information in a ListView.
 
-The application also includes an attractive user interface displaying the student's name and USN.
+The application also provides a user-friendly interface with the student's details.
 
 ## Objectives
 
 1. To understand the Android Contacts Content Provider.
 2. To request runtime permission to access device contacts.
-3. To retrieve contact names and phone numbers using `ContentResolver`.
-4. To display contact information using a `ListView`.
-5. To understand how Android applications share data through Content Providers.
+3. To retrieve contact names and phone numbers using ContentResolver.
+4. To read contact information using Cursor.
+5. To display contact details using ListView and ArrayAdapter.
+6. To understand data sharing between Android applications using Content Providers.
 
 ## Technologies Used
 
@@ -29,17 +30,17 @@ The application also includes an attractive user interface displaying the studen
 - **Content Resolver:** Used to retrieve contact information
 - **UI Components:** ListView, ArrayAdapter, Button, TextView
 - **Permission Handling:** Android Runtime Permissions
-- **API:** Android ContactsContract API
+- **Android API:** ContactsContract
 
 ## Features
 
-- **Runtime Permission:** Requests permission from the user to access device contacts.
+- **Runtime Permission:** Requests permission to access device contacts.
 - **Contact Retrieval:** Retrieves contact names and phone numbers from the device.
 - **Contact Display:** Displays retrieved contacts in a ListView.
-- **Content Resolver:** Uses ContentResolver to access contact data.
-- **User-Friendly Interface:** Provides an attractive interface with student details.
-- **Permission Handling:** Handles contact access permission before retrieving data.
-- **Dynamic Data Loading:** Loads contacts when the user clicks the Load Contacts button.
+- **Content Resolver:** Uses ContentResolver to access contact information.
+- **User-Friendly Interface:** Displays student details with an attractive interface.
+- **Permission Handling:** Checks permission before accessing contacts.
+- **Dynamic Loading:** Loads contacts when the user clicks the Load Contacts button.
 
 ## Project Structure
 
@@ -61,16 +62,23 @@ ContactsProvider/
 ├── build.gradle.kts
 ├── settings.gradle.kts
 └── README.md
+```
 
 ## Required Permissions
 
 The application requires the `READ_CONTACTS` permission to access contact names and phone numbers stored on the device.
 
-Permission declaration in `AndroidManifest.xml`:
+### Permission Declaration
+
+Add the following permission to `AndroidManifest.xml`, outside the `<application>` tag:
 
 ```xml
 <uses-permission android:name="android.permission.READ_CONTACTS" />
 ```
+
+The application requests runtime permission from the user before accessing contacts.
+
+**Privacy Note:** Contact information is accessed only after the user grants the required permission.
 
 ## Implementation Details
 
@@ -80,27 +88,27 @@ The application is developed using Kotlin in Android Studio with an XML-based us
 The application requests the `READ_CONTACTS` runtime permission before accessing the device's contacts.
 
 ### 2. Accessing Contacts
-The `ContentResolver` is used to query the Android Contacts Content Provider through `ContactsContract.CommonDataKinds.Phone.CONTENT_URI`.
+The `ContentResolver` queries the Android Contacts Content Provider using `ContactsContract.CommonDataKinds.Phone.CONTENT_URI`.
 
 ### 3. Retrieving Contact Information
-A `Cursor` retrieves the contact names and phone numbers from the query results.
+A `Cursor` retrieves contact names and phone numbers from the query results.
 
 ### 4. Displaying Contacts
 The retrieved contact information is stored in a list and displayed using a `ListView` with an `ArrayAdapter`.
 
 ### 5. User Interaction
-The user clicks the **Load Contacts** button to retrieve and display the contacts after granting permission.
+The user clicks the **Load Contacts** button to retrieve and display contacts after granting permission.
 
 ## Application Workflow
 
 1. Launch the Contacts Provider application.
-2. The application displays the home screen with student details.
+2. The home screen displays the application interface and student details.
 3. Click the **Load Contacts** button.
 4. The application requests permission to access contacts if permission has not already been granted.
 5. Grant the `READ_CONTACTS` permission.
 6. The application retrieves contact names and phone numbers using `ContentResolver`.
 7. The retrieved contacts are displayed in a `ListView`.
-8. If permission is denied, the application should handle the situation appropriately.
+8. If permission is denied, the application handles the situation appropriately.
 
 ### Workflow Summary
 
@@ -108,46 +116,43 @@ Launch App → Request Permission → Access Contacts Provider → Retrieve Cont
 
 ## Testing and Test Cases
 
-The application was tested to verify that contact permissions are handled correctly and contact information is retrieved and displayed as expected.
+The application is tested to verify that contact permissions are handled correctly and contact information is retrieved and displayed as expected.
 
 | Test Case | Test Scenario | Expected Result | Status |
 |---|---|---|---|
-| TC01 | Launch the application | Home screen is displayed successfully | Pass |
-| TC02 | Click the Load Contacts button | Permission is requested if not already granted | Pass |
-| TC03 | Grant contact permission | Application accesses the contacts | Pass |
-| TC04 | Load contacts | Contact names and phone numbers are displayed | Pass |
-| TC05 | Deny contact permission | Application handles the denied permission appropriately | Pass |
-| TC06 | Load contacts when no contacts are available | Application handles the empty contact list appropriately | Pass |
+| TC01 | Launch the application | Home screen is displayed successfully | Verify |
+| TC02 | Click Load Contacts without permission | Permission request is displayed | Verify |
+| TC03 | Grant contact permission | Application accesses the contacts | Verify |
+| TC04 | Load contacts | Contact names and phone numbers are displayed | Verify |
+| TC05 | Deny contact permission | Application handles the denied permission | Verify |
+| TC06 | No contacts are available | Application handles the empty contact list | Verify |
 
-**Note:** Mark each test case as Pass only after verifying the behavior on your device or emulator.
+**Note:** Update the status to **Pass** or **Fail** after testing each case on your device or emulator.
 
 ## Screenshots
 
-The following screenshots demonstrate the working of the Contacts Provider application.
+The following screenshots demonstrate the output of the Contacts Provider application.
 
-### 1. Home Screen
-Displays the application interface with the student's name and details.
+### Output 1: Application Home Screen
 
-![Home Screen](Screenshots/HomeScreen.png)
+Displays the application interface and student details.
 
-### 2. Contact Permission
-Displays the permission request when the application attempts to access contacts.
+![Output 1](Screenshots/Output%201.png)
 
-![Contact Permission](Screenshots/Permission.png)
+### Output 2: Contacts Display
 
-### 3. Contact List
-Displays the retrieved contact names and phone numbers.
+Shows the output of the application when accessing and displaying contact information.
 
-![Contact List](Screenshots/ContactList.png)
+![Output 2](Screenshots/Output%202.png)
 
 ## Concepts Learned
 
 Through this experiment, the following concepts were learned:
 
 1. Understanding the Android Contacts Content Provider.
-2. Accessing device contacts using `ContactsContract`.
-3. Using `ContentResolver` to retrieve contact information.
-4. Working with `Cursor` to read query results.
+2. Accessing contact information using `ContactsContract`.
+3. Retrieving data using `ContentResolver`.
+4. Reading query results using `Cursor`.
 5. Implementing runtime permissions in Android.
 6. Displaying dynamic data using `ListView` and `ArrayAdapter`.
 7. Understanding data sharing between Android applications through Content Providers.
@@ -155,4 +160,4 @@ Through this experiment, the following concepts were learned:
 
 ## Result
 
-Thus, the Android application was successfully developed to demonstrate data sharing using the Contacts Content Provider. The application retrieves contact names and phone numbers with the user's permission and displays them using a ListView.
+Thus, the Android application was successfully developed to demonstrate data sharing using the Contacts Content Provider. The application retrieves contact names and phone numbers with the user's permission and displays the retrieved information using a ListView.
