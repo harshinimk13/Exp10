@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F3FF"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- App Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CONTACTS PROVIDER"
+            android:textColor="#6D4AFF"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your Contacts,"
+            android:textColor="#211747"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="All your connections in one place."
+            android:textColor="#77718B"
+            android:textSize="15sp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Student Profile Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="18dp"
+            android:background="#6D4AFF"
+            android:elevation="4dp">
+
+            <TextView
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:gravity="center"
+                android:background="#FFFFFF"
+                android:text="HM"
+                android:textColor="#6D4AFF"
+                android:textSize="23sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="15dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Harshini M"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MCA Student"
+                    android:textColor="#E5DEFF"
+                    android:textSize="14sp"
+                    android:layout_marginTop="4dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="USN: 25MCAR0095"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp"
+                    android:layout_marginTop="6dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Contacts Section Heading -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contact Directory"
+            android:textColor="#211747"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            android:layout_marginTop="28dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Access contacts stored on your device"
+            android:textColor="#77718B"
+            android:textSize="13sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="15dp"/>
+
+        <!-- Load Contacts Button -->
+        <Button
+            android:id="@+id/btnLoadContacts"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:text="LOAD MY CONTACTS"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:backgroundTint="#6D4AFF"
+            android:letterSpacing="0.04"/>
+
+        <!-- Contacts List -->
+        <ListView
+            android:id="@+id/listContacts"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_marginTop="16dp"
+            android:background="#FFFFFF"
+            android:padding="8dp"
+            android:divider="#EAE5F5"
+            android:dividerHeight="1dp"
+            android:clipToPadding="false"/>
+
+        <!-- Footer -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ANDROID APPLICATION DEVELOPMENT"
+            android:textColor="#9189A8"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:letterSpacing="0.06"
+            android:layout_marginTop="22dp"
+            android:layout_marginBottom="12dp"/>
+
+    </LinearLayout>
+
+</ScrollView>
